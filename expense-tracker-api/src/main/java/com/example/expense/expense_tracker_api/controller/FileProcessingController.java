@@ -5,12 +5,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 @RestController
 public class FileProcessingController {
 
     @PostMapping("/api/upload")
-    public String handleFileUpload(@RequestParm("file") MultipartFile file) {
+    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()){
             return "File is empty";
         }
@@ -25,7 +27,7 @@ public class FileProcessingController {
 
             // Read output
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuilder reader = new StringBuilder();
+            StringBuilder output = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 output.append(line);
