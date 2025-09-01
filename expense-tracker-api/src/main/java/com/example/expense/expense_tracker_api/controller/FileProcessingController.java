@@ -30,6 +30,8 @@ public class FileProcessingController {
 
             // Execute Python script
             ProcessBuilder pb = new ProcessBuilder("python", "process_data.py", filePath);
+            pb.directory(new File(System.getProperty("user.dir") + File.separator + ".."));
+
             Process process = pb.start();
 
             // Read output
