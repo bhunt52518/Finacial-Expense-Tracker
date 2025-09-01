@@ -23,8 +23,8 @@ public class FileProcessingController {
 
             // Read output
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuilder reader = new StringBuilder;
-            Sting line;
+            StringBuilder reader = new StringBuilder();
+            String line;
             while ((line = reader.readLine()) != null) {
                 output.append(line);
             }
