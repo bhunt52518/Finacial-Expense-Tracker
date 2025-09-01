@@ -1,4 +1,4 @@
-package com.example.expense.controller;
+package com.example.expense.expense_tracker_api.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +40,6 @@ public class FileProcessingController {
                 return "Python script failed with exit code: " + exitCode;
             }
 
-            return "File uploaded and processed successfully.";
         } catch (Exception e) {
             return "Failed to upload file: " + e.getMessage();
         }
