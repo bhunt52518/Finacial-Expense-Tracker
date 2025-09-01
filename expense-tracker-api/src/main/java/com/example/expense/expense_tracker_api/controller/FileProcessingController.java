@@ -19,7 +19,9 @@ public class FileProcessingController {
             return "File is empty";
         }
         try {
-            String uploadDirectory = "uploads";
+            String homeDirectory = System.getPropety("user.home");
+            String uploadDirectory = homeDirectory + File.separator + "uploads";
+
             Files.createDirectories(Paths.get(uploadDirectory));
 
             // Save the uploaded file temporarily to server
