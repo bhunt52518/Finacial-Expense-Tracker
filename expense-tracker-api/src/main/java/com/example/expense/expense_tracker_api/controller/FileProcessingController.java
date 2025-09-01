@@ -7,6 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @RestController
 public class FileProcessingController {
@@ -17,8 +19,11 @@ public class FileProcessingController {
             return "File is empty";
         }
         try {
+            String uploadDirectory = "uploads";
+            Files.createDirectories(Paths.get(uploadDirectory));
+
             // Save the uploaded file temporarily to server
-            String filePath = "uploads/" + file.getOriginalFilename();
+            String filePath = uploadDirectory + "/" + file.getOriginalFilename();
             file.transferTo(new File(filePath));
 
             // Execute Python script
