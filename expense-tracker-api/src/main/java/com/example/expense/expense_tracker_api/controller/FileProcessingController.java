@@ -19,7 +19,7 @@ public class FileProcessingController {
             return "File is empty";
         }
         try {
-            String homeDirectory = System.getPropety("user.home");
+            String homeDirectory = System.getProperty("user.home");
             String uploadDirectory = homeDirectory + File.separator + "uploads";
 
             Files.createDirectories(Paths.get(uploadDirectory));
